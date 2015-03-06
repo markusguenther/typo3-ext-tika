@@ -1,5 +1,5 @@
 <?php
-namespace ApacheSolrForTypo3\Tika\Service;
+namespace ApacheSolrForTypo3\Tika\Service\Tika;
 
 /***************************************************************
  *  Copyright notice
@@ -46,11 +46,11 @@ class TikaServiceFactory {
 		switch ($tikaService) {
 			case 'jar':
 			case 'tika': // backwards compatibility only
-				return GeneralUtility::makeInstance('ApacheSolrForTypo3\\Tika\\Service\\AppService');
+				return GeneralUtility::makeInstance('ApacheSolrForTypo3\\Tika\\Service\\Tika\\AppService');
 			case 'server':
-				return GeneralUtility::makeInstance('ApacheSolrForTypo3\\Tika\\Service\\ServerService');
+				return GeneralUtility::makeInstance('ApacheSolrForTypo3\\Tika\\Service\\Tika\\ServerService');
 			case 'solr':
-				return GeneralUtility::makeInstance('ApacheSolrForTypo3\\Tika\\Service\\SolrCellService');
+				return GeneralUtility::makeInstance('ApacheSolrForTypo3\\Tika\\Service\\Tika\\SolrCellService');
 			default:
 				throw new \InvalidArgumentException(
 					'Unknown Tika service type "' . $tikaService . '". Must be one of jar, server, or solr.',
